@@ -15,7 +15,7 @@ var Letter = function (letter){
         return this.letter
     }
     //checks if the guess matches any of the letters in the word
-    this.checkLetter = function(){
+    this.checkLetter = function(guess){
         if (guess === this.letter){
             this.hasGuessed = true
         }
