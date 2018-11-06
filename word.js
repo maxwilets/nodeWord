@@ -19,4 +19,9 @@ function Word(word) {
             this.letterAr.push(newLetter)
         }
     }
+    this.checkLetter = function(){
+        for (i = 0; i < letterAr.length; i ++){
+            
+        }
+    }
 }
