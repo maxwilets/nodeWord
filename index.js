@@ -43,7 +43,7 @@ function gamePrompt() {
         message: 'What is your guess?'
         //callback function to check the guess from the letters constructor
     }]).then(function(data) {
-        word.letters(words)
+         word.letters(words)
         word.checkLetter1(data.guess);
         })
 }

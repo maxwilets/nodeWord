@@ -14,7 +14,7 @@ var Letter = function (letter){
            return( "_")
            
         }
-         return  this.letter
+         return(this.letter)
        // console.log('Workingish')
     }
     //checks if the guess matches any of the letters in the word
@@ -23,15 +23,15 @@ var Letter = function (letter){
         if (guess == this.letter){
             this.hasGuessed = true
             //this.whenGuessed()
-            return(this.letter)
+          //  return this.letter
             
         }
         else{this.hasGuessed = false
             //this.whenGuessed()
-            return "_"
+           // return " _ "
             }
         
     }
 }
-
+Letter.whenGuessed
 module.exports = Letter 
