@@ -63,7 +63,8 @@ var game = {
                    if (inLetterAr == 0) {
                        console.reset();
                        console.log("\n*******          *******\n");
-                       guessesWrong ++
+                       guessesWrong ++;
+                       display ++;
                        console.log(hangmanDisplay[guessesWrong])
                        console.log('\n-_-_-_-_-_-_-_-_-_-_-_-_-')
                        console.log('\n Letters Guessed: ' + this.guessedAr)
@@ -74,6 +75,22 @@ var game = {
                        console.log('\n*******          *******\n')
                        console.log('Thats right, you gessed it! \n You Won!')
                        process.exit()
+                   }
+                   else if (this.display == 0){
+                       console.reset();
+                       console.log('\n*******          *******\n')
+                       console.log('Guesses Remaining: ' + (12 - guessesWrong))
+                       console.log('\n*******          *******\n')
+                       console.log(this.currentWord.wordRend())
+                       console.log("Letters guessed: " + this.guessedAr)
+                   }
+                   else{
+                       console.reset();
+                       console.log('\n*******          *******\n')
+                       console.log('Correct \n\n*******          *******\n');
+                       console.log(hangmanDisplay[guessesWrong]);
+                       console.log(this.currentWord.wordRend);
+                       console.log('\n-_-_-_-_-_-_-_-_-_-_-_-_-')
                    }
                }
             })
