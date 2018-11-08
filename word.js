@@ -1,40 +1,52 @@
 var Letter = require('./letter')
 //var leter = new Letter;
-var wordAr = [];
-var word;
-
 
 function Word(word) {
     this.word = word;
     this.wordAr = [];
     this.letterAr=[]
+    this.wordAr = word.split("");
+    this.allFound1 = false;
     //this breaks up the letters of the word and puts them into an array
     this.letters = function(word){
         //splits the word into seperate objects
-        this.wordAr = word.split("");
+        
        // console.log(this.wordAr)
         for(i = 0; i < this.word.length; i ++ ){
             //the new letter is equal to one of the letters in the word and then
             //put through the letter constructor
-            var newLetter = new Letter(this.wordAr[i]);
+            var newLetter = new Letter(this.word[i]);
             this.letterAr.push(newLetter)
-            //console.log(newLetter.letter)
-           // console.log(this.letterAr[i].letter)
-
+            
         
         }
-        
-    
+    }
+    this.allFound = () => {
+        if(this.letterAr.every(function(letter){
+            return letter.hasGuessed = true;  //=
+        }))
+        this.allFound1 = false;
     }
     //calls the checkLetter funtion from the Letter constructor
     this.checkLetter1 = function(guess){
-        for (i = 0; i < this.letterAr.length; i ++){
-            this.letterAr[i].checkLetter(guess)
-            this.letterAr[i].whenGuessed()
+        var hanger = 0
+            this.letterAr.forEach(function(letter){
+                if(letter.letter === guess){
+                    newLetter.hasGuessed = true;
+                    hanger++;
+                }
+            })
+            return hanger
         }
-       // console.log(this.letterAr)
-     //  console.log(this.word)
+        this.wordRend = function (){
+            var display = '';
+            this.letterAr.forEach(function(letter){
+               var currentLetter = letter.whenGuessed();
+               display += currentLetter
+            })
+            return display;
+        }
     }
-}
-//console.log(Word)
+
+
 module.exports = Word

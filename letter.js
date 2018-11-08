@@ -1,4 +1,3 @@
-guess = process.argv[2]
 
 var Letter = function (letter){
     
@@ -9,12 +8,16 @@ var Letter = function (letter){
     this.whenGuessed = function(){     
     //if the letter guessed is wrong it will fill with _ if not it will do the guess
     //this function will be looped in the word.js 
-        if (this.hasGuessed === false){
+         if(this.letter == ""){
+             this.hasGuessed = true
+             return ""
+         }   
+    if (this.hasGuessed === false){
             
-           return( "_")
-           
+           return( " _ ")
+       
         }
-         return(this.letter)
+         else{return this.letter}
        // console.log('Workingish')
     }
     //checks if the guess matches any of the letters in the word
