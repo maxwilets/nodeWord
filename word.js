@@ -31,9 +31,9 @@ function Word(word) {
     this.checkLetter1 = function(guess){
         var hanger = 0
             this.letterAr.forEach(function(lett){
-                if(lett.letter === guess){
-                    newLetter.hasGuessed = true;
-                    hanger++;
+                if(lett.letter == guess){
+                    lett.hasGuessed = true;
+                    hanger ++;
                 }
             })
             return hanger

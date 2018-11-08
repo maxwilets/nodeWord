@@ -55,13 +55,50 @@ var game = {
             console.reset();
             console.log('\n Welcome to Console Hangman! \n The category is Final Fantasy Characters \n-_-_-_-_=_-_-_=_-_-_=_-_-_=_-')
             game.randomNum= Math.floor(Math.random() * 64);
-            game.currentWord= new Word(ffArr[this.randomNum]);
+            game.currentWord= new Word(ffArr[game.randomNum]);
             game.currentWord.letters();
             console.log(hangmanDisplay[guessesWrong])
             console.log(game.currentWord.wordRend())
             console.log('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-
+            game.gamePrompt()
         }
+    },
+    gamePrompt: () => {
+        inquire.prompt({
+            name: 'guess',
+            type: 'input',
+            message: 'Guess a letter'
+
+        }).then(function(data){
+            var thisGuess = data.guess;
+            var guessedBoo = false;
+            console.reset();
+            for (i = 0; i < game.guessedLetters.length; i ++) {
+                if(thisGuess == game.guessedLetters[i]){
+                    guessedBoo = true;
+                    console.reset();
+                    console.log('You have already guessed that letter');
+                    this.gamePrompt();
+                }
+            }
+            if(guessedBoo == false) {
+                game.guessedLetters.push(thisGuess);
+               
+                var inTheWord = game.currentWord.checkLetter1(thisGuess);
+                if (inTheWord === 0){
+                  //  console.reset();
+                    guessesWrong ++
+                   // console.log(game.currentWord)
+                    console.log('\n*******          *******\n\n');
+                    console.log('\n'+ hangmanDisplay[guessesWrong])
+                    console.log('That letter is not in the word');
+                    console.log('\n guesses remaining: ' + (12-guessesWrong))
+                    console.log(thisGuess)
+                    console.log(game.currentWord.letterAr)
+                    console.log('\n' +game.currentWord.wordRend())
+                }
+            }
+        })
     }
    
 
