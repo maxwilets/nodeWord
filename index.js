@@ -69,6 +69,12 @@ var game = {
                        console.log('\n Letters Guessed: ' + this.guessedAr)
 
                    }
+                   else if(this.currentWord.allFound() == true) {
+                       console.reset();
+                       console.log('\n*******          *******\n')
+                       console.log('Thats right, you gessed it! \n You Won!')
+                       process.exit()
+                   }
                }
             })
          }
