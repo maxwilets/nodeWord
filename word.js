@@ -23,9 +23,11 @@ function Word(word) {
     }
     this.allFound = () => {
         if(this.letterAr.every(function(letter){
-            return true;  //=
+            return letter.hasGuessed == true;  //=
         }))
-        this.allFound1 = false;
+        {
+        this.allFound1 = true;
+        return true}
     }
     //calls the checkLetter funtion from the Letter constructor
     this.checkLetter1 = function(guess){
