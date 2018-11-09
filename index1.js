@@ -88,11 +88,26 @@ var game = {
                 if (inTheWord === 0){
                   //  console.reset();
                     guessesWrong ++
+                    if (guessesWrong === 12) {
+                        console.log("Game over, the correct word was " + game.currentWord.word);
+                        inquire.prompt({
+                            name: 'again',
+                            type: 'confirm',
+                            message: 'Play Again?'
+                        }).then(function(data){
+                            if (data.again){
+                                game.newGame()
+                            }
+                            else{console.log('Ok, bye!')}
+                        })
+                        process.exit()
+                    }
                    // console.log(game.currentWord)
                     console.log('\n*******          *******\n\n');
                     console.log('\n'+ hangmanDisplay[guessesWrong])
                     console.log('That letter is not in the word');
                     console.log('\n guesses remaining: ' + (12-guessesWrong))
+                    console.log('\nLetters Guessed: ' + game.guessedLetters)
                     console.log('\n' +game.currentWord.wordRend())
                     game.gamePrompt()
                 }
@@ -104,10 +119,12 @@ var game = {
                     console.log('\n*******          *******\n\n')
                     process.exit()
                 }
+                
                 else{
                     console.reset();
                     console.log('\n*******          *******\n\n');
                     //console.log(hangmanDisplay[guessesWrong]);
+                    console.log(hangmanDisplay[guessesWrong])
                     console.log('\n\n' + game.currentWord.wordRend())
                     console.log('\n\nLetters guessed: ' + game.guessedLetters )
                     console.log('\n Correct \n');
