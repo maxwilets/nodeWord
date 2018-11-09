@@ -3,7 +3,7 @@ var Letter = require('./letter')
 
 function Word(word) {
     this.word = word;
-    this.wordAr = [];
+    //this.wordAr = [];
     this.letterAr=[]
    // this.wordAr = word.split("");
     this.allFound1 = false;
@@ -23,7 +23,7 @@ function Word(word) {
     }
     this.allFound = () => {
         if(this.letterAr.every(function(letter){
-            return letter.hasGuessed = true;  //=
+            return true;  //=
         }))
         this.allFound1 = false;
     }
@@ -41,8 +41,8 @@ function Word(word) {
         this.wordRend = function (){
             var display = '';
             this.letterAr.forEach(function(lett){
-               var currentLetter = lett.whenGuessed();
-               display += currentLetter
+               var thisLetter = lett.checkLetter();
+               display += thisLetter
             })
             return display;
         }

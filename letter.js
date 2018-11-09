@@ -8,9 +8,9 @@ var Letter = function (letter){
     this.whenGuessed = function(){     
     //if the letter guessed is wrong it will fill with _ if not it will do the guess
     //this function will be looped in the word.js 
-         if(this.letter == ""){
+         if(this.letter == " "){
              this.hasGuessed = true
-             return ""
+             return " "
          }   
     if (this.hasGuessed === false){
             
@@ -23,18 +23,18 @@ var Letter = function (letter){
     //checks if the guess matches any of the letters in the word
     this.checkLetter = function(guess){
         
-        if (guess == this.letter){
+        if (this.hasGuessed == true){
             this.hasGuessed = true
             //this.whenGuessed()
-          //  return this.letter
+            return this.letter
             
         }
-        else{this.hasGuessed = false
+        else{
             //this.whenGuessed()
-           // return " _ "
+            return " _ "
             }
         
     }
 }
-Letter.whenGuessed
+
 module.exports = Letter 

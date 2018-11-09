@@ -78,7 +78,7 @@ var game = {
                     guessedBoo = true;
                     console.reset();
                     console.log('You have already guessed that letter');
-                    this.gamePrompt();
+                    game.gamePrompt();
                 }
             }
             if(guessedBoo == false) {
@@ -93,9 +93,26 @@ var game = {
                     console.log('\n'+ hangmanDisplay[guessesWrong])
                     console.log('That letter is not in the word');
                     console.log('\n guesses remaining: ' + (12-guessesWrong))
-                    console.log(thisGuess)
-                    console.log(game.currentWord.letterAr)
                     console.log('\n' +game.currentWord.wordRend())
+                    game.gamePrompt()
+                }
+                else if(game.currentWord.allFound() == true){
+                    console.reset();
+                    console.log('\n*******          *******\n\n');
+                    console.log(game.currentWord.wordRend());
+                    console.log("You got the word right!");
+                    console.log('\n*******          *******\n\n')
+                    process.exit()
+                }
+                else{
+                    console.reset();
+                    console.log('\n*******          *******\n\n');
+                    //console.log(hangmanDisplay[guessesWrong]);
+                    console.log('\n\n' + game.currentWord.wordRend())
+                    console.log('\n\nLetters guessed: ' + game.guessedLetters )
+                    console.log('\n Correct \n');
+                    game.gamePrompt()
+                    
                 }
             }
         })
