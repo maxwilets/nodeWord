@@ -38,4 +38,4 @@
 
 ## Demo of the Game
  
-     [click here for the link](https://drive.google.com/file/d/1F5WLbxDGyQbfqYm8jLFvWY3uScbdaCLg/view)
+     https://drive.google.com/file/d/1F5WLbxDGyQbfqYm8jLFvWY3uScbdaCLg/view
