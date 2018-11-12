@@ -1,17 +1,13 @@
+//requires the letter.js file
 var Letter = require('./letter')
-//var leter = new Letter;
-
+//creates the word constructor
 function Word(word) {
     this.word = word;
-    //this.wordAr = [];
     this.letterAr=[]
-   // this.wordAr = word.split("");
     this.allFound1 = false;
-    //this breaks up the letters of the word and puts them into an array
     this.letters = function(){
-        //splits the word into seperate objects
         
-       // console.log(this.wordAr)
+        
         for(i = 0; i < this.word.length; i ++ ){
             //the new letter is equal to one of the letters in the word and then
             //put through the letter constructor
@@ -21,9 +17,10 @@ function Word(word) {
         
         }
     }
+    //if all the words found is true, it will run this function ending the game
     this.allFound = () => {
         if(this.letterAr.every(function(letter){
-            return letter.hasGuessed == true;  //=
+            return letter.hasGuessed == true;  
         }))
         {
         this.allFound1 = true;
@@ -33,6 +30,8 @@ function Word(word) {
     this.checkLetter1 = function(guess){
         var hanger = 0
             this.letterAr.forEach(function(lett){
+                //checks guess with every letter in the word if
+                //one matches it changes lett.hasGuessed to true
                 if(lett.letter == guess){
                     lett.hasGuessed = true;
                     hanger ++;
@@ -40,6 +39,8 @@ function Word(word) {
             })
             return hanger
         }
+        //renders the word to the console screen depending on how many 
+        //letters have been guessed
         this.wordRend = function (){
             var display = '';
             this.letterAr.forEach(function(lett){
