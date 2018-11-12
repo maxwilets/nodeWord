@@ -1,5 +1,7 @@
 # nodeWord
 
+## Bonus Project!
+
 ### Objectives
 
 * Create a game that prompts the user to guess letters to a word in the console using the inquirer NPM package.
@@ -20,8 +22,20 @@
          * The remaining guesses the user has left.
          * Chooses a word from the array of words.
          
+ ### How to Play
+      
+      * Once the file is installed open up your favorite console viewer
+      * Make sure Node.js is installed
+      * Make sure the console is directed to this directory
+      * type node index.js to begin the game
+      * if the game is over and you want to play again just type node index.js into the console or the 'up' key + enter
+         
  ### Technologies Used
  
       * JavaScript
       * Node.js
       * Inquire NPM
+
+## Demo of the Game
+
+     https://drive.google.com/file/d/1F5WLbxDGyQbfqYm8jLFvWY3uScbdaCLg/view
